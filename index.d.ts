@@ -16,18 +16,29 @@
 * limitations under the License.
 */
 
-import isComplex128Array = require( './index' );
+// TypeScript Version: 2.0
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { Complex128Array } from '@stdlib/types/array';
+
+/**
+* Tests if a value is a Complex128Array.
+*
+* @param value - value to test
+* @returns boolean indicating whether value is a Complex128Array
+*
+* @example
+* var bool = isComplex128Array( new Complex128Array( 10 ) );
+* // returns true
+*
+* @example
+* var bool = isComplex128Array( [] );
+* // returns false
+*/
+declare function isComplex128Array( value: any ): value is Complex128Array;
 
 
-// TESTS //
+// EXPORTS //
 
-// The function returns a boolean...
-{
-	isComplex128Array( [] ); // $ExpectType boolean
-}
-
-// The compiler throws an error if the function is provided an unsupported number of arguments...
-{
-	isComplex128Array(); // $ExpectError
-	isComplex128Array( [], 123 ); // $ExpectError
-}
+export = isComplex128Array;
